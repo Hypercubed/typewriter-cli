@@ -1,0 +1,37 @@
+{
+  "name": "typewriter-cli",
+  "version": "0.0.0",
+  "files": [
+    "cli.js"
+  ],
+  "bin": {
+    "typewriter": "cli.js"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "author": "J. Harshbarger",
+  "license": "MIT",
+  "devDependencies": {
+    "xo": "^0.17.0"
+  },
+  "xo": {
+    "space": 2,
+    "envs": [
+      "node"
+    ]
+  },
+  "dependencies": {
+    "node-typewriter": "^0.0.2"
+  },
+  "main": "cli.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hypercubed/typewriter-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hypercubed/typewriter-cli/issues"
+  },
+  "homepage": "https://github.com/Hypercubed/typewriter-cli#readme",
+  "description": ""
+}
