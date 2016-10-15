@@ -2,8 +2,9 @@
 'use strict';
 
 const getStdin = require('get-stdin');
-const typewriter = require('node-typewriter');
 const meow = require('meow');
+
+const type = require('./type');
 
 const cli = meow(`
     Usage
@@ -21,12 +22,17 @@ const cli = meow(`
 });
 
 const input = cli.input[0];
-const run = str => typewriter(str, str.length / Number(cli.flags.speed) * 1000, false);
 
 if (!input && process.stdin.isTTY) {
   console.error('Input required');
   process.exit(1);
 }
+
+const min = 1 / Number(cli.flags.speed) * 1000;
+const max = 2 * min;
+
+const write = process.stdout.write.bind(process.stdout);
+const run = str => type(str, {min, max}, write);
 
 if (input) {
   run(input);

@@ -24,7 +24,8 @@
   "dependencies": {
     "get-stdin": "^5.0.1",
     "meow": "^3.7.0",
-    "node-typewriter": "^0.0.2"
+    "slice-ansi": "0.0.4",
+    "string-typer": "^1.2.0"
   },
   "main": "cli.js",
   "repository": {
