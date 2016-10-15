@@ -13,7 +13,17 @@ $ npm install --global typewriter-cli
 ## Usage
 
 ```
-ls -l node_modules/ |  typewriter
+$ typewriter --help
+
+  Usage
+    $ typewriter <string>
+    $ echo <string> | typewriter
+
+  Options
+    --speed, -s  Typing animation speed (char/s, default = 1000)
+
+  Example
+    $ ls -l | typewriter -s 100
 ```
 
 
