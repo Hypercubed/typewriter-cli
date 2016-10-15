@@ -1,24 +1,35 @@
 #!/usr/bin/env node
 'use strict';
 
+const getStdin = require('get-stdin');
 const typewriter = require('node-typewriter');
+const meow = require('meow');
 
-let buffer = [];
+const cli = meow(`
+    Usage
+      $ typewriter <string>
+      $ echo <string> | typewriter
 
-process.stdin.setEncoding('utf8');
+    Options
+      --speed, -s  Typing animation speed (char/s, default = 1000)
 
-process.stdin.on('error', () => {
+    Examples
+      $ ls -l | typewriter
+`, {
+  alias: {s: 'speed'},
+  default: {speed: 1000}
+});
+
+const input = cli.input[0];
+const run = str => typewriter(str, str.length / Number(cli.flags.speed) * 1000, false);
+
+if (!input && process.stdin.isTTY) {
+  console.error('Input required');
   process.exit(1);
-});
+}
 
-process.stdin.on('readable', () => {
-  var chunk = process.stdin.read();
-  if (chunk !== null) {
-    buffer.push(chunk);
-  }
-});
-
-process.stdin.on('end', () => {
-  buffer = buffer.join('');
-  typewriter(buffer, buffer.length, false);
-});
+if (input) {
+  run(input);
+} else {
+  getStdin().then(run);
+}

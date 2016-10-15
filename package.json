@@ -22,6 +22,8 @@
     ]
   },
   "dependencies": {
+    "get-stdin": "^5.0.1",
+    "meow": "^3.7.0",
     "node-typewriter": "^0.0.2"
   },
   "main": "cli.js",
