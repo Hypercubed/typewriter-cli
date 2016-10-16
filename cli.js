@@ -2,8 +2,9 @@
 'use strict';
 
 const getStdin = require('get-stdin');
-const typewriter = require('node-typewriter');
 const meow = require('meow');
+
+const type = require('./index');
 
 const cli = meow(`
     Usage
@@ -11,7 +12,7 @@ const cli = meow(`
       $ echo <string> | typewriter
 
     Options
-      --speed, -s  Typing animation speed (char/s, default = 1000)
+      --speed, -s  Mean typing animation speed (char/s, default = 1000)
 
     Examples
       $ ls -l | typewriter
@@ -21,12 +22,18 @@ const cli = meow(`
 });
 
 const input = cli.input[0];
-const run = str => typewriter(str, str.length / Number(cli.flags.speed) * 1000, false);
 
 if (!input && process.stdin.isTTY) {
   console.error('Input required');
   process.exit(1);
 }
+
+const avg = 1 / Number(cli.flags.speed) * 1000;
+const min = avg / 2;
+const max = 3 * min;
+
+const write = process.stdout.write.bind(process.stdout);
+const run = str => type(str, {min, max}, write);
 
 if (input) {
   run(input);
