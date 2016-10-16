@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "files": [
     "cli.js",
-    "type.js"
+    "index.js"
   ],
   "main": "index.js",
   "bin": {
