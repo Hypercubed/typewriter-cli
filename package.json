@@ -1,11 +1,11 @@
 {
   "name": "typewriter-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "files": [
     "cli.js",
     "index.js"
   ],
-  "main": "index.js",
+  "main": "cli.js",
   "bin": {
     "typewriter": "cli.js"
   },
@@ -29,7 +29,6 @@
     "slice-ansi": "0.0.4",
     "string-typer": "^1.2.0"
   },
-  "main": "cli.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hypercubed/typewriter-cli.git"
