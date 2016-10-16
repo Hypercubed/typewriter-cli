@@ -16,6 +16,7 @@ const cli = meow(`
 
     Examples
       $ ls -l | typewriter
+      $ credits -r credits --color | typewriter -s 500
 `, {
   alias: {s: 'speed'},
   default: {speed: 1000}

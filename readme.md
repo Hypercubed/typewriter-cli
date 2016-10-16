@@ -20,10 +20,11 @@ $ typewriter --help
     $ echo <string> | typewriter
 
   Options
-    --speed, -s  Typing animation speed (char/s, default = 1000)
+    --speed, -s  Mean typing animation speed (char/s, default = 1000)
 
   Example
-    $ ls -l | typewriter -s 100
+    $ ls -l | typewriter
+    $ credits -r credits --color | typewriter -s 500
 ```
 
 
